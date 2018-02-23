@@ -5,14 +5,29 @@ require 'pry'
 
 class GameTest < MiniTest::Test
 
-  def test_game_exists
+  def test_game_class_exists
     game = Game.new
-    assert_instance_of  Game, game
+
+    assert_instance_of Game, game
   end
 
-  def test_game_has_four_colors
+  def test_it_has_a_sequence
     game = Game.new
-    assert_equal game.colors.length, 4
+
+    assert_equal "rrgb", game.sequence
   end
 
- end
+  def test_start_has_a_opening
+    game = Game.new
+
+    assert_equal "Welcome to MASTERMIND", game.opening
+  end
+
+  def test_start_has_a_contents
+    game = Game.new
+
+    assert_equal "Would you like to (p)lay, read the (i)nstructions, or (q)uit?", game.contents
+  end
+
+
+end

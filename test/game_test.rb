@@ -23,11 +23,36 @@ class GameTest < MiniTest::Test
     assert_equal "Welcome to MASTERMIND", game.opening
   end
 
-  def test_start_has_a_contents
+  def test_start_has_a_menu
     game = Game.new
 
-    assert_equal "Would you like to (p)lay, read the (i)nstructions, or (q)uit?", game.contents
+    assert_equal "Would you like to (p)lay, read the (i)nstructions, or (q)uit?", game.menu
   end
+
+  def test_start_can_accept_quit_option
+    game = Game.new
+
+    assert_equal "See you next time!", game.quit
+  end
+
+  def test_response_when_q_calls_quit
+    game = Game.new(io:StringIO.new("q"))
+
+    assert_equal "See you next time!", game.response
+  end
+
+  def test_start_can_accept_instructions_option
+    game = Game.new
+
+    assert_equal "Quick look!", game.instructions
+  end
+
+  def test_response_when_i_calls_instructions
+    game = Game.new(io:StringIO.new("i"))
+
+    assert_equal "Quick look!", game.response
+  end
+
 
 
 end

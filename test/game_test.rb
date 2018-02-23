@@ -53,6 +53,14 @@ class GameTest < MiniTest::Test
     assert_equal "Quick look!", game.response
   end
 
+  def test_what_user_sees_when_they_start_and_quit_options
+    game = Game.new
+
+    assert_equal "I have generated a beginner sequence with four elements made up of: (r)ed,
+(g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game.
+What's your guess?", game.
+  end
+
 
 
 end

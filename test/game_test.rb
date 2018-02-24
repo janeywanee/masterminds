@@ -68,9 +68,23 @@ class GameTest < MiniTest::Test
 
   def test_if_letters_are_less_than_four
     game = Game.new
-    input = "ggg"
 
-    assert_equal "Too Short", game.validation(input)
+    assert game.short('ggg')
   end
 
+  def test_if_letters_are_greater_than_four
+    game = Game.new
+
+    assert game.long('gggggggggg')
+  end
+
+  def test_it_gives_correct_elements
+    game = Game.new
+    input = "rggb"
+    assert
+  end
+
+  # def Test_it_gives_correct_positions
+  #
+  # end
 end

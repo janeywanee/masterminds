@@ -32,25 +32,42 @@ class Game
     (g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game.
     What's your guess?"
     input = gets.chomp.downcase
+
     if quit_commands(input)
       exit
     elsif cheat_commands(input)
       puts @sequence
     else
-      puts validation(input)
+      validation(input)
+    end
+  end
+
+  def short(input)
+    if input.length < 4
+      return true
+    else
+      return false
+    end
+  end
+
+  def long(input)
+    if input.length > 4
+      return true
+    else
+      return false
     end
   end
 
   def validation(input)
-    if input == @sequence
-      return true
-    elsif input.length < 4
-       "Too Short"
-       play
-       
+    if short(input)
+      puts "Too Short"
+      play
+    elsif long(input)
+      puts "Too Long"
+      play
+    else
 
     end
-
   end
 
   def play_commands(input)

@@ -29,38 +29,48 @@ class GameTest < MiniTest::Test
     assert_equal "Would you like to (p)lay, read the (i)nstructions, or (q)uit?", game.menu
   end
 
-  def test_start_can_accept_quit_option
-    game = Game.new
-
-    assert_equal "See you next time!", game.quit
-  end
-
   def test_response_when_q_calls_quit
-    game = Game.new(io:StringIO.new("q"))
+    game = Game.new#(io:StringIO.new("q"))
+    input = "q"
 
-    assert_equal "See you next time!", game.response
-  end
+    assert game.quit_commands(input)
 
-  def test_start_can_accept_instructions_option
-    game = Game.new
-
-    assert_equal "Quick look!", game.instructions
+    # assert_equal "See you next time!", game.response
   end
 
   def test_response_when_i_calls_instructions
-    game = Game.new(io:StringIO.new("i"))
+    game = Game.new#(io:StringIO.new("i"))
+    input = "i"
 
-    assert_equal "Quick look!", game.response
+    assert game.instruction_commands(input)
   end
 
-  def test_what_user_sees_when_they_start_and_quit_options
+  def test_response_when_p_calls_play
     game = Game.new
+    input = "p"
 
-    assert_equal "I have generated a beginner sequence with four elements made up of: (r)ed,
-(g)reen, (b)lue, and (y)ellow. Use (q)uit at any time to end the game.
-What's your guess?", game.
+    assert game.play_commands(input)
   end
 
+  def test_it_can_validate_input
+    game = Game.new
+    input = "rrgb"
 
+    assert game.validation(input)
+  end
+
+  def test_it_can_cheat
+    game = Game.new
+    input = "c"
+
+    assert game.cheat_commands(input)
+  end
+
+  def test_if_letters_are_less_than_four
+    game = Game.new
+    input = "ggg"
+
+    assert_equal "Too Short", game.validation(input)
+  end
 
 end

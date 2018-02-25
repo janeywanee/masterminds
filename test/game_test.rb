@@ -86,5 +86,5 @@ class GameTest < MiniTest::Test
 
   # def Test_it_gives_correct_positions
   #
-  # end
+  # end  
 end

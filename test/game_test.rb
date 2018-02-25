@@ -52,13 +52,6 @@ class GameTest < MiniTest::Test
     assert game.play_commands(input)
   end
 
-  def test_it_can_validate_input
-    game = Game.new
-    input = "rrgb"
-
-    assert game.validation(input)
-  end
-
   def test_it_can_cheat
     game = Game.new
     input = "c"
@@ -84,7 +77,5 @@ class GameTest < MiniTest::Test
     assert
   end
 
-  # def Test_it_gives_correct_positions
-  #
-  # end  
+ 
 end

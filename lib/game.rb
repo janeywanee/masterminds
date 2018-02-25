@@ -1,9 +1,10 @@
 require 'pry'
+require './lib/sequence'
 class Game
   attr_reader :sequence, :io
 
   def initialize#(io:"")
-    @sequence = "rrgb"
+    @sequence = Sequence.new.generate
     @io = io
   end
 
@@ -58,6 +59,7 @@ class Game
     end
   end
 
+
   def validation(input)
     if short(input)
       puts "Too Short"
@@ -66,6 +68,11 @@ class Game
       puts "Too Long"
       play
     else
+      #take the input and create a guess
+      # take guess and sequence and compare
+      # if we win then stop, if not then play
+
+
 
     end
   end

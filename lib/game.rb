@@ -1,11 +1,11 @@
 require 'pry'
 require './lib/sequence'
+require './lib/guess'
 class Game
-  attr_reader :sequence, :io
+  attr_reader :sequence,
 
-  def initialize#(io:"")
+  def initialize
     @sequence = Sequence.new.generate
-    @io = io
   end
 
   def start
@@ -68,6 +68,7 @@ class Game
       puts "Too Long"
       play
     else
+
       #take the input and create a guess
       # take guess and sequence and compare
       # if we win then stop, if not then play
@@ -94,7 +95,6 @@ class Game
   end
 
   def response
-    # response = io.gets.strip
     print '> '
     input = gets.chomp
     if play_commands(input)
@@ -106,5 +106,5 @@ class Game
     end
   end
 end
-game = Game.new
-game.start
+# game = Game.new
+# game.start

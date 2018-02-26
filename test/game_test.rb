@@ -30,11 +30,10 @@ class GameTest < MiniTest::Test
   end
 
   def test_response_when_q_calls_quit
-    game = Game.new#(io:StringIO.new("q"))
+    game = Game.new
     input = "q"
 
     assert game.quit_commands(input)
-
     # assert_equal "See you next time!", game.response
   end
 
@@ -74,8 +73,6 @@ class GameTest < MiniTest::Test
   def test_it_gives_correct_elements
     game = Game.new
     input = "rggb"
-    assert
   end
 
- 
 end

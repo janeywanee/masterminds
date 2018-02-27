@@ -77,4 +77,6 @@ class GameTest < MiniTest::Test
     input = "rggb"
   end
 
+  
+
 end

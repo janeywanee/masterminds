@@ -84,7 +84,7 @@ class Game
       end
     elsif input.length == sequence.length && input != sequence
 
-      #input length is the same as sequence length AND input does not equal sequence
+      
 
     end
   end

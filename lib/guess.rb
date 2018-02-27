@@ -27,4 +27,13 @@ class Guess
     end
   end
 
+  def correct_elements
+    (input.chars & sequence.chars).length
+
+  end
+
+  def correct_positions
+     input.chars.zip(sequence.chars).count{|c1, c2| c1 == c2}
+  end
+
 end

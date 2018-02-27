@@ -27,4 +27,26 @@ class GuessTest < MiniTest::Test
 
     assert game.long(input)
   end
+
+  def test_it_can_validate_correct_elemants
+    skip
+    input = "rrgb"
+    sequence = "rbgg"
+    guess = Guess.new(input, sequence)
+
+    assert_equal 3, guess.correct_elements
+  end
+
+  def test_it_can_validate_correct_positions
+    input = "rggb"
+    sequence = "bgrr"
+    guess = Guess.new(input, sequence)
+
+    assert_equal 1, guess.correct_positions
+  end
+
+
+
+
+
 end

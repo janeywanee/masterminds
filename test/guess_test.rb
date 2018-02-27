@@ -35,6 +35,7 @@ class GuessTest < MiniTest::Test
     guess = Guess.new(input, sequence)
 
     assert_equal 3, guess.correct_elements
+    refute_equal 2, guess.correct_positions
   end
 
   def test_it_can_validate_correct_positions
@@ -43,6 +44,7 @@ class GuessTest < MiniTest::Test
     guess = Guess.new(input, sequence)
 
     assert_equal 1, guess.correct_positions
+    refute_equal 2, guess.correct_positions
   end
 
 

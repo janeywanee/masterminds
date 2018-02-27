@@ -83,9 +83,10 @@ class Game
         exit
       end
     elsif input.length == sequence.length && input != sequence
-
-      
-
+      positions = guess.correct_positions
+      elements = guess.correct_elements
+      puts "'#{input}' has #{elements} of the correct elements with #{positions} in the correct positions
+You've taken 1 guess"
     end
   end
 

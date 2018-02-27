@@ -1,3 +1,4 @@
+require 'pry'
 class Sequence
   attr_reader :data
   VALID_LETTERS = ['r', 'g', 'b', 'y']

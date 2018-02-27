@@ -2,11 +2,15 @@ require 'pry'
 require './lib/sequence'
 require './lib/guess'
 class Game
-  attr_reader :sequence,
+  attr_reader :sequence
 
   def initialize
-    @sequence = Sequence.new.generate
+    @sequence = Sequence.new.generate.join
   end
+
+  # def sequence
+  #   @sequence.generate
+  # end
 
   def start
     puts opening
@@ -43,37 +47,44 @@ class Game
     end
   end
 
-  def short(input)
-    if input.length < 4
-      return true
-    else
-      return false
-    end
-  end
+  # def short(input)
+  #   if input.length < 4
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
 
-  def long(input)
-    if input.length > 4
-      return true
-    else
-      return false
-    end
-  end
+  # def long(input)
+  #   if input.length > 4
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
 
 
   def validation(input)
-    if short(input)
+    guess = Guess.new(input, @sequence)
+    if guess.short(input)
       puts "Too Short"
       play
-    elsif long(input)
+    elsif guess.long(input)
       puts "Too Long"
       play
-    elsif
-      @sequence == input
-      #take the input and create a guess
-      # take guess and sequence and compare
-      # if we win then stop, if not then play
+    elsif guess.correct?
+      puts "Congratulations! You guessed the sequence #{@sequence} in 8 guesses over 4 minutes,
+22 seconds."
+      puts 'Do you want to (p)lay again or (q)uit?'
+      replay = gets.chomp.downcase
+      if play_commands(replay)
+        play
+      elsif quit_commands(replay)
+        exit
+      end
+    elsif input.length == sequence.length && input != sequence
 
-
+      #input length is the same as sequence length AND input does not equal sequence
 
     end
   end
@@ -106,5 +117,5 @@ class Game
     end
   end
 end
-# game = Game.new
-# game.start
+game = Game.new
+game.start

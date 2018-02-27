@@ -38,7 +38,7 @@ class GameTest < MiniTest::Test
   end
 
   def test_response_when_i_calls_instructions
-    game = Game.new#(io:StringIO.new("i"))
+    game = Game.new
     input = "i"
 
     assert game.instruction_commands(input)

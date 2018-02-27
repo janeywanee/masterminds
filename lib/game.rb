@@ -67,8 +67,8 @@ class Game
     elsif long(input)
       puts "Too Long"
       play
-    else
-
+    elsif
+      @sequence == input
       #take the input and create a guess
       # take guess and sequence and compare
       # if we win then stop, if not then play

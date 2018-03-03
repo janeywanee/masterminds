@@ -14,12 +14,14 @@ class GuessTest < MiniTest::Test
     guess = Guess.new("rgyb")
     assert_equal 'rgyb', guess.input
   end
+
   def test_if_letters_are_less_than_four
     input = 'ggg'
     game = Guess.new(input)
 
     assert game.short(input)
   end
+
   def test_if_letters_are_greater_than_four
     input = 'gggggggggg'
 
@@ -28,19 +30,19 @@ class GuessTest < MiniTest::Test
     assert game.long(input)
   end
 
-  def test_it_can_validate_correct_elemants
-    skip
-    input = "rrgb"
-    sequence = "rbgg"
-    guess = Guess.new(input, sequence)
-
-    assert_equal 3, guess.correct_elements
-    refute_equal 2, guess.correct_positions
-  end
+  # def test_it_can_validate_correct_elements
+  #   skip
+  #   input = "rrgb"
+  #   sequence = "rbgg"
+  #   guess = Guess.new(input, sequence)
+  #
+  #   assert_equal 3, guess.correct_elements
+  #   refute_equal 2, guess.correct_elements
+  # end
 
   def test_it_can_validate_correct_positions
     input = "rggb"
-    sequence = "bgrr"
+    sequence = "ryyy"
     guess = Guess.new(input, sequence)
 
     assert_equal 1, guess.correct_positions
